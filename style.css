@@ -1,0 +1,153 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: white;
+}
+.navbar{
+    display: flex;
+    min-height: 10vh;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(270deg,orangered,orange);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 1px 1px 80px rgba(0,0,0,0.2);
+}
+.navbar h1{
+    cursor: pointer;
+    margin-left: 30px;
+}
+.navbar ul{
+    display: flex;
+    justify-content: space-around;
+    min-width: 50%;
+    font-size: 1.2rem;
+    list-style: none;
+    transition: 0.2s ease;
+}
+.navbar ul li{
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+.navbar ul li:hover{
+    background-color: rgba(255,156,0,0.4);
+    color: white;
+}
+.hamburger{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    padding: 0.2rem;
+    cursor: pointer;
+    overflow: hidden;
+    display: none;
+}
+.hamburger div{
+    height: 5px;
+    width: 40px;
+    background: white;
+    margin-top: 5px;
+    pointer-events: none;
+    transition: 0.3s ease;
+}
+.slide{
+    transform: translateX(-100%);
+}
+.products{
+    width: 100%;
+    margin: 0px auto;
+    padding: 0.2rem 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,300px);
+    gap: 10px;
+}
+.product{
+    position: relative;
+    overflow: hidden;
+    background: white;
+    width: 300px;
+    height: 300px;
+    border: 1px solid rgba(0,0,0,0.2);
+}
+.product img{
+    padding: 0.5rem;
+    width: 300px;
+    height: 260px;
+    object-fit: contain;
+    object-position: top;
+}
+.product button{
+    position: absolute;
+    padding: 0.2rem 1rem;
+    width: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 5px;
+    border: none;
+    background: orange;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bolder;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Mobile Show*/
+@media screen and (max-width:700px){
+    .navbar{
+        justify-content: center;
+        position: sticky;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+    }
+    .navbar h1{
+        letter-spacing: 3px;
+        font-size: 3rem;
+    } 
+    .navbar ul{
+        position: absolute;
+        flex-direction: column;
+        text-align: center;
+        top: 10vh;
+        width: 100vw;
+        height: 90vh;
+        right: -105%;
+        font-size: 1.6rem;
+        background: rgba(0,0,0,0.6);
+        z-index: 1000;
+    }
+    .hamburger{
+        display: inline;
+    }
+    .line1.toggle{
+    transform: translateY(10px) rotateZ(45deg);
+    }
+    .line2.toggle{
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    .line3.toggle{
+        transform: translateY(-10px) rotateZ(-45deg);
+    }
+    .products{
+        margin: 0px auto;
+        grid-template-columns: repeat(auto-fit,400px);
+    }
+    .product{
+        width: 90vw;
+    }
+    .product img{
+        width: 100%;
+        height: 260px;
+        object-fit: contain;
+        object-position: top;
+    }
+}
